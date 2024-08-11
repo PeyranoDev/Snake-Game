@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Snake Game</title>
+</head>
+<body>
+    <main>
+        <section class="mainInfo">
+            <h1 class="mainTitle">Snake Game</h1>
+            <span class="noImpText">¡Intenta conseguir la mayor cantidad de puntos!</span>
+            <canvas class="gameCanvas" id="gameCanvas"></canvas>
+
+            <p class="lostMessage">Has perdido!</p>
+            <button class="restartButton">Reiniciar</button>
+
+            <p class="scoreLabel">Puntaje: <span class="score" id="score">0</span></p>
+            <button class="startButton">Iniciar Juego</button>
+        </section>
+    </main>
+
+    <script src="scripts/game.js"></script>
+
+    <audio id="backgroundMusic" src="audios/background.mp3" loop></audio>
+
+    <audio id="moveSound" src="audios/move.mp3"></audio>
+
+    <audio id="eatSound" src="audios/eat.mp3"></audio>
+</body>
+</html>

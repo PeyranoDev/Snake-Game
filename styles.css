@@ -1,0 +1,107 @@
+/* Snake game style */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.mainTitle {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.noImpText {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.gameCanvas {
+    width: 400px;
+    height: 400px;
+    margin: 10px auto;
+    background-color: #a6a6a6;
+    border: 2px solid #000;
+    display: block;
+}
+
+.lostMessage {
+    display: none;
+    font-size: 1.5em;
+    color: red;
+    margin: 10px 0;
+}
+
+.restartButton, .startButton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.restartButton:hover, .startButton:hover {
+    background-color: #0056b3;
+}
+
+.scoreLabel {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Estilo para el selector de dificultad */
+.difficultyLabel {
+    font-size: 1em;
+    color: #333;
+    margin-right: 10px;
+}
+
+.difficultySelect {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px; /* Ajusta el espaciado inferior */
+}
+
+.difficultySelect:hover {
+    border-color: #0056b3;
+    background-color: #f0f8ff;
+}
+
+.difficultySelect:focus {
+    outline: none;
+    border-color: #0056b3;
+    background-color: #e0e8ff;
+    color: #007bff;
+}
+
+
+.snake {
+    background-color: #00ff00;
+}
+
+.food {
+    background-color: #ff0000;
+}
