@@ -1,21 +1,28 @@
 /* Snake game style */
-body, html {
+html {
     height: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e0e0e0;
+    background: linear-gradient(to right, #CFF536, #7FF536); 
     font-family: Arial, sans-serif;
 }
 
 main {
-    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgba(5, 58, 0, 1);
     text-align: center;
+    margin: 20px;
+    min-height: 80%;
+    background-color: rgb(21, 77, 21, 0.2); 
 }
+
 
 .mainTitle {
     font-size: 2em;
@@ -29,12 +36,13 @@ main {
 }
 
 .gameCanvas {
-    width: 400px;
-    height: 400px;
+    width: 548px;
+    height: 483px;
     margin: 10px auto;
     background-color: #a6a6a6;
     border: 2px solid #000;
     display: block;
+    background-image: url("https://discuss.codingblocks.com/uploads/default/original/2X/8/891ee9a180d14aa4cb2f71100d7b3a987215d384.jpg");
 }
 
 .lostMessage {
@@ -44,7 +52,7 @@ main {
     margin: 10px 0;
 }
 
-.restartButton, .startButton {
+.button, .button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
@@ -56,17 +64,16 @@ main {
     transition: background-color 0.3s ease;
 }
 
-.restartButton:hover, .startButton:hover {
+.scoreLabel .button:hover, .button:hover {
     background-color: #0056b3;
 }
 
-.scoreLabel {
+.scoreLabel .button {
     font-size: 1.2em;
     margin-top: 20px;
     color: #333;
 }
 
-/* Estilo para el selector de dificultad */
 .difficultyLabel {
     font-size: 1em;
     color: #333;
@@ -82,7 +89,7 @@ main {
     color: #333;
     cursor: pointer;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 20px; /* Ajusta el espaciado inferior */
+    margin-bottom: 20px; 
 }
 
 .difficultySelect:hover {
@@ -97,6 +104,43 @@ main {
     color: #007bff;
 }
 
+.difficultyButtons {
+    margin-top: 20px;
+}
+
+.difficultyButtons{ 
+    .button.easy {
+        background-color: #13d513; 
+    }
+    .button.medium {
+        background-color: #e3f521;
+    }
+    .button.hard {
+        background-color: #ff5733;
+    }
+    .button.insane {
+        background-color: #ff3333;
+    }
+};
+
+.difficultyButtons {
+    .button.easy:hover {
+        background-color: #10c416;
+    }
+    .button.medium:hover {
+        background-color: #d1ee11;
+    }
+    .button.hard:hover {
+        background-color: #ff4d00;
+    }
+    .button.insane:hover {
+        background-color: #ff0000;
+    }
+};
+
+.difficultyOption.active {
+    background-color: #ff5733;
+}
 
 .snake {
     background-color: #00ff00;

@@ -1,17 +1,15 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
-const startButton = document.querySelector('.startButton');
-const restartButton = document.querySelector('.restartButton');
+const startButton = document.querySelector('.button.start');
+const restartButton = document.querySelector('.button.restart');
 const lostMessage = document.querySelector('.lostMessage');
-const difficultyOptions = document.querySelectorAll('.difficultyOption');
+const difficultyOptions = document.querySelectorAll('.button.easy, .button.medium, .button.hard, .button.insane'); 
 
 // Ajustes para el tamaño del canvas y de las celdas
-const cellSize = 20;  // Tamaño de cada celda de la serpiente y la comida
-const canvasSize = 400;  // Tamaño del canvas
-
-canvas.width = canvasSize;
-canvas.height = canvasSize;
+const cellSize = 28;  // Tamaño de cada celda de la serpiente y la comida 
+canvas.width = 560;   // Ajustado para ser un múltiplo de 28
+canvas.height = 504;  // Ajustado para ser un múltiplo de 28
 
 let snake = [];
 let food = { x: 15, y: 15 };
@@ -19,7 +17,7 @@ let dx = 1; // Movimiento inicial hacia la derecha
 let dy = 0;
 let score = 0;
 let gameInterval;
-let gameSpeed;  // Definición global de gameSpeed
+let gameSpeed;
 
 function initSnake() {
     snake = [
@@ -29,30 +27,20 @@ function initSnake() {
     ];
 }
 
-let selectedDifficulty = 'easy';  
+let selectedDifficulty = 'easy';
 
 difficultyOptions.forEach(option => {
     option.addEventListener('click', function() {
-        // Eliminar la clase 'active' de todos los divs
         difficultyOptions.forEach(opt => opt.classList.remove('active'));
-
-        // Añadir la clase 'active' al div clicado
         this.classList.add('active');
-
-        // Cambiar la dificultad según la opción seleccionada
         selectedDifficulty = this.getAttribute('data-difficulty');
-        console.log('Dificultad seleccionada:', selectedDifficulty);
-
-        // Aquí puedes actualizar la velocidad del juego según la dificultad seleccionada
         if (selectedDifficulty === 'easy') {
             gameSpeed = 200;
         } else if (selectedDifficulty === 'medium') {
             gameSpeed = 150;
-        }
-        else if (selectedDifficulty === 'hard') {
+        } else if (selectedDifficulty === 'hard') {
             gameSpeed = 100;
-        }
-        else if (selectedDifficulty === 'insane') {
+        } else if (selectedDifficulty === 'insane') {
             gameSpeed = 50;
         }
     });
@@ -84,13 +72,13 @@ function moveSnake() {
 }
 
 function createFood() {
-    food.x = Math.floor(Math.random() * (canvasSize / cellSize));
-    food.y = Math.floor(Math.random() * (canvasSize / cellSize));
+    food.x = Math.floor(Math.random() * (canvas.width / cellSize));
+    food.y = Math.floor(Math.random() * (canvas.height / cellSize));
 }
 
 function checkCollision() {
     const head = snake[0];
-    const hitWall = head.x < 0 || head.x >= (canvasSize / cellSize) || head.y < 0 || head.y >= (canvasSize / cellSize);
+    const hitWall = head.x < 0 || head.x >= (canvas.width / cellSize) || head.y < 0 || head.y >= (canvas.height / cellSize);
     const hitSelf = snake.slice(1).some(part => part.x === head.x && part.y === head.y);
     return hitWall || hitSelf;
 }
@@ -105,7 +93,6 @@ function resetGame() {
     lostMessage.style.display = 'none';
     startButton.style.display = 'none';
     restartButton.style.display = 'none';
-    gameSpeed;  // Asignar la velocidad según la dificultad
 }
 
 function startGame() {
@@ -137,19 +124,19 @@ document.addEventListener('keydown', event => {
     if (keyPressed === 'ArrowUp' && dy === 0) {
         dx = 0;
         dy = -1;
-        moveSound.play();
+        
     } else if (keyPressed === 'ArrowDown' && dy === 0) {
         dx = 0;
         dy = 1;
-        moveSound.play();
+        
     } else if (keyPressed === 'ArrowLeft' && dx === 0) {
         dx = -1;
         dy = 0;
-        moveSound.play();
+        
     } else if (keyPressed === 'ArrowRight' && dx === 0) {
         dx = 1;
         dy = 0;
-        moveSound.play();
+        
     }
 });
 
